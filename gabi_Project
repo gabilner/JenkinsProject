@@ -1,0 +1,40 @@
+pipeline {
+    agent { node { label 'master' } }
+    parameters {
+        choice(
+            choices: ['All' , 'C' , 'Python' , 'Bash'],
+            description: 'select the language of the Script',
+            name: 'REQUESTED_ACTION')
+    }
+
+    stages {
+        stage ('C') {
+            when {
+                // run this stage if All or C was selected
+                expression { params.REQUESTED_ACTION == 'All' || params.REQUESTED_ACTION == 'C'}
+            }
+            steps {
+                echo "run C language"
+            }
+        }
+		stage ('Python') {
+            when {
+                // run this stage if All or C was selected
+                expression { params.REQUESTED_ACTION == 'All' || params.REQUESTED_ACTION == 'C'}
+            }
+            steps {
+                echo "run Python language"
+            }
+        }
+		stage ('Bash') {
+            when {
+                // run this stage if All or C was selected
+                expression { params.REQUESTED_ACTION == 'All' || params.REQUESTED_ACTION == 'C'}
+            }
+            steps {
+                echo "run Bash language"
+            }
+        }
+		
+    }
+}
