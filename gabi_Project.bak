@@ -13,7 +13,6 @@ pipeline {
 				checkout scm
 			}
         } 
-<<<<<<< HEAD
 		stage('Build') {
          steps {
             echo 'Build process..'            
@@ -22,8 +21,6 @@ pipeline {
                 chmod 755 *.sh
             '''
          }
-=======
->>>>>>> b4e066ab8e80e9dc52b50240c3750d4622b67063
         stage ('C') {
             when {
                 // run this stage if All or C was selected
