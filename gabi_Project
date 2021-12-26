@@ -20,6 +20,7 @@ pipeline {
                 cd "${WORKSPACE}"
                 chmod 755 *.sh
 				chmod 755 *.py
+				chmod 755 *.out
             '''
          }
 		}
