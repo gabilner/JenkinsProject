@@ -41,7 +41,7 @@ pipeline {
             steps {
                 sh '''
                 echo "Testing Script with Python"
-				./
+				./python_script.py
 			'''
             }
         }
@@ -53,7 +53,7 @@ pipeline {
             steps {
                 sh '''
                 echo "Testing Script with Bash"
-				./reverse.sh
+				./bash_script.sh
 			'''
             }
         }
