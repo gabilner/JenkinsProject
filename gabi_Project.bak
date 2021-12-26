@@ -21,6 +21,7 @@ pipeline {
                 chmod 755 *.sh
             '''
          }
+		}
         stage ('C') {
             when {
                 // run this stage if All or C was selected
