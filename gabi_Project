@@ -13,13 +13,24 @@ pipeline {
 				checkout scm
 			}
         } 
+		stage('Build') {
+         steps {
+            echo 'Build process..'            
+            sh '''
+                cd "${WORKSPACE}"
+                chmod 755 *.sh
+            '''
+         }
         stage ('C') {
             when {
                 // run this stage if All or C was selected
                 expression { params.REQUESTED_ACTION == 'All' || params.REQUESTED_ACTION == 'C'}
             }
             steps {
-                echo "run C language"
+                sh '''
+                echo "Testing Script with C"
+                
+            '''
             }
         }
 		stage ('Python') {
@@ -28,7 +39,9 @@ pipeline {
                 expression { params.REQUESTED_ACTION == 'All' || params.REQUESTED_ACTION == 'Python'}
             }
             steps {
-                echo "run Python language"
+                sh '''
+                echo "Testing Script with Python"
+			'''
             }
         }
 		stage ('Bash') {
@@ -37,7 +50,10 @@ pipeline {
                 expression { params.REQUESTED_ACTION == 'All' || params.REQUESTED_ACTION == 'Bash'}
             }
             steps {
-                echo "run Bash language"
+                sh '''
+                echo "Testing Script with Bash"
+				./reverse.sh
+			'''
             }
         }
 		
