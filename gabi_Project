@@ -55,7 +55,7 @@ pipeline {
             }
             steps {
                 sh '''
-                echo "Testing Script with Bash"
+                echo "Testing Script with Bash "
 				./bash_script.sh
 			'''
             }
