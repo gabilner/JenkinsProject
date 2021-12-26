@@ -41,6 +41,7 @@ pipeline {
             steps {
                 sh '''
                 echo "Testing Script with Python"
+				./
 			'''
             }
         }
