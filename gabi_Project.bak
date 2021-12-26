@@ -8,11 +8,6 @@ pipeline {
     }
 
     stages {
-		stage('Clone Sources') {
-			steps {
-				checkout scm
-			}
-        } 
         stage ('C') {
             when {
                 // run this stage if All or C was selected
@@ -25,7 +20,7 @@ pipeline {
 		stage ('Python') {
             when {
                 // run this stage if All or C was selected
-                expression { params.REQUESTED_ACTION == 'All' || params.REQUESTED_ACTION == 'Python'}
+                expression { params.REQUESTED_ACTION == 'All' || params.REQUESTED_ACTION == 'C'}
             }
             steps {
                 echo "run Python language"
@@ -34,7 +29,7 @@ pipeline {
 		stage ('Bash') {
             when {
                 // run this stage if All or C was selected
-                expression { params.REQUESTED_ACTION == 'All' || params.REQUESTED_ACTION == 'Bash'}
+                expression { params.REQUESTED_ACTION == 'All' || params.REQUESTED_ACTION == 'C'}
             }
             steps {
                 echo "run Bash language"
